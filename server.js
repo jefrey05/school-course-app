@@ -25,6 +25,26 @@ app.get('/',(req,res)=>{
     res.render('index.ejs')
 })
 
+app.get('/add',(req,res)=>{
+    res.render('add.ejs')
+})
+
+app.get('/fetch',(req,res)=>{
+    db.collection('courses').find().toArray()
+    .then(data=>{
+        res.render('fetch.ejs',{info:data})
+    })
+    .catch(error=>console.error(error))
+})
+
+app.post('/addCourse',(req,res)=>{
+    db.collection('courses').insertOne({id:req.body.id,name:req.body.name,description: req.body.description,amount: req.body.amount})
+    .then(result=>{
+        console.log('Course Added')
+        res.redirect('/add')
+    })
+})
+
 
 app.listen(process.env.PORT || PORT,()=>{
 console.log(`Server is running on port ${PORT}`)
