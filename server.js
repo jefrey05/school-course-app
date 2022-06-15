@@ -4,6 +4,7 @@ const MongoClient = require('mongodb').MongoClient;
 const PORT = 2121;
 require('dotenv').config();
 const cors = require('cors');
+const { restart } = require('nodemon');
 app.use(cors())
 
 let db,
@@ -32,11 +33,15 @@ app.get('/add',(req,res)=>{
 app.get('/fetch',(req,res)=>{
     db.collection('courses').find().toArray()
     .then(data=>{
-        res.render('fetch.ejs',{info:data})
+        res.render('fetch.ejs',{courses:data})
     })
     .catch(error=>console.error(error))
 })
 
+app.get('/update',(req,res)=>{
+    res.render('update.ejs');
+}
+)
 app.post('/addCourse',(req,res)=>{
     db.collection('courses').insertOne({id:req.body.id,name:req.body.name,description: req.body.description,amount: req.body.amount})
     .then(result=>{

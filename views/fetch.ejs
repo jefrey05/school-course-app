@@ -32,12 +32,12 @@
                     <th>Amount</th>
                 </tr>
                 <tbody>
-                    <% for(let i = 0;i < info.length;i++){%>
+                    <% for(let i = 0;i < courses.length;i++){%>
                     <tr>
-                        <th><%= info[i].id %></th>
-                        <th><%= info[i].name %></th>
-                        <th><%= info[i].description %></th>
-                        <th><span>$</span><%= info[i].amount %></th>
+                        <th><%= courses[i].id %></th>
+                        <th><%= courses[i].name %></th>
+                        <th><%= courses[i].description %></th>
+                        <th><span>$</span><%= courses[i].amount %></th>
                     </tr>
                     <%} %>
                 </tbody>
