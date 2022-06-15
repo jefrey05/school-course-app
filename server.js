@@ -50,6 +50,11 @@ app.post('/addCourse',(req,res)=>{
     })
 })
 
+app.put('/update',(req,res)=>{
+    console.log(req.body);
+    res.json('Good')
+})
+
 
 app.listen(process.env.PORT || PORT,()=>{
 console.log(`Server is running on port ${PORT}`)
