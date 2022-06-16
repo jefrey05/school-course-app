@@ -52,13 +52,13 @@ app.post('/addCourse',(req,res)=>{
 
 app.put('/update',(req,res)=>{
     console.log(req.body);
-    db.collection('courses').UpdateOne({id:req.body.id,amount:req.body.amount},{
+    db.collection('courses').updateOne({id:req.body.id},{
         $set:{
             amount:req.body.amount
         }
     })
     .then(result=>{
-        console.log('Updated amount')
+        //console.log('Updated amount')
         res.json('Updated amount');
     })
     .catch(error=> console.error(error))
