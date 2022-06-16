@@ -4,6 +4,13 @@ btn.addEventListener('click',update);
 async function update(){
     const id = document.querySelector('#id').value;
     const amount = document.querySelector('#amount').value;
+
+    if(isNaN(id)){
+        return null;
+    }
+    if(isNaN(amount)){
+        return null;
+    }
     try{
         const response = await fetch('update',{
             method:'put',
