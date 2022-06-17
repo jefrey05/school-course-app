@@ -70,7 +70,8 @@ app.put('/update',(req,res)=>{
 })
 
 app.delete('/delete',(req,res)=>{
-    
+    console.log(req.body)
+    res.json("deleted")
 })
 
 
