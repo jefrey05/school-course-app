@@ -69,6 +69,10 @@ app.put('/update',(req,res)=>{
     .catch(error=> console.error(error))
 })
 
+app.delete('/delete',(req,res)=>{
+    
+})
+
 
 
 app.listen(process.env.PORT || PORT,()=>{
