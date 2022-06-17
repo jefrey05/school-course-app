@@ -7,15 +7,15 @@ async function deleteCourse(){
     try{
 const response = await fetch('delete',{
     method:'delete',
-    headers:{'content-type':'application/json'},
+    headers:{'Content-Type':'application/json'},
     body:JSON.stringify({
-      'id':id,
-    })
+      id:id,
+    }),
 })
 
 const data = await response.json();
      console.log(data)
-     location.reload();
+     window.location = '/fetch'
     }catch(err){
         console.log(err)
 
