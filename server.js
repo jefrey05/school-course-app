@@ -70,8 +70,13 @@ app.put('/update',(req,res)=>{
 })
 
 app.delete('/delete',(req,res)=>{
-    console.log(req.body)
-    res.json("deleted")
+    //console.log(req.body)
+    db.collection('courses').deleteOne({id:req.body.id})
+    .then(result=>{
+        console.log("Deleted course");
+        res.json('Course deleted')
+    })
+    .catch(error=>console.error(error))
 })
 
 
